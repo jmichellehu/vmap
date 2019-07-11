@@ -232,8 +232,8 @@ def main():
     if not os.path.exists(outdir):
         os.makedirs(outdir)
 
-    ds1_clip_fn = fn1#os.path.join(outdir, os.path.splitext(os.path.basename(fn1))[0]+'_warp.tif')
-    ds2_clip_fn = fn2#os.path.join(outdir, os.path.splitext(os.path.basename(fn2))[0]+'_warp.tif')
+    ds1_clip_fn = fn1 #os.path.join(outdir, os.path.splitext(os.path.basename(fn1))[0]+'_warp.tif')
+    ds2_clip_fn = fn2 #os.path.join(outdir, os.path.splitext(os.path.basename(fn2))[0]+'_warp.tif')
     #
     # if not os.path.exists(ds1_clip_fn) or not os.path.exists(ds2_clip_fn):
     #     #This should write out files to new subdir
@@ -279,8 +279,8 @@ def main():
         ds2_clip_fn = ds2_masked_fn
 
     #Load warped versions on disk
-    ds1_clip = iolib.fn_getds(fn1)#ds1_clip_fn)
-    ds2_clip = iolib.fn_getds(fn2)#ds2_clip_fn)
+    ds1_clip = iolib.fn_getds(fn1) #ds1_clip_fn)
+    ds2_clip = iolib.fn_getds(fn2) #ds2_clip_fn)
 
     #Should have extra kwargs option here
     stereo_opt = get_stereo_opt(threads=threads, kernel=kernel, timeout=timeout, erode=erode, spr=spr)

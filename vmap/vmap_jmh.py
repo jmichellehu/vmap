@@ -32,6 +32,7 @@ def run_cmd(bin, args, **kw):
         sys.exit(msg)
     call = [binpath,]
     call.extend(args)
+    print(call)
     print(' '.join(call))
     try:
         code = subprocess.call(call, shell=False)
@@ -470,22 +471,22 @@ def main():
     print('\n%s' % datetime.now())
     print('%s UTC\n' % datetime.utcnow())
 
-    #Check if vm.tif already exists
-    #Should probably just overwrite by default
-    #if os.path.exists(os.path.splitext(d_fn)[0]+'_vm.tif'):
-    #    print("\nFound existing velocity magnitude map!\n"
-    #else:
-    #Generate output velocity products and figure
-    #Requires that vmap repo is in PATH
-    cmd = ['disp2v.py', d_fn]
-    #Note: this will attempt to automatically determine control surfaces
-    #disp2v.py will accept arbitrary mask, could pass through here
-    if args.remove_offsets:
-        cmd.append('-remove_offsets')
-    cmd.extend(['-dt', args.dt])
-    print("Converting disparities to velocities")
-    print(cmd)
-    subprocess.call(cmd)
+#     #Check if vm.tif already exists
+#     #Should probably just overwrite by default
+#     #if os.path.exists(os.path.splitext(d_fn)[0]+'_vm.tif'):
+#     #    print("\nFound existing velocity magnitude map!\n"
+#     #else:
+#     #Generate output velocity products and figure
+#     #Requires that vmap repo is in PATH
+#     cmd = ['disp2v.py', d_fn]
+#     #Note: this will attempt to automatically determine control surfaces
+#     #disp2v.py will accept arbitrary mask, could pass through here
+#     if args.remove_offsets:
+#         cmd.append('-remove_offsets')
+#     cmd.extend(['-dt', args.dt])
+#     print("Converting disparities to velocities")
+#     print(cmd)
+#     subprocess.call(cmd)
 
 if __name__ == "__main__":
     main()
